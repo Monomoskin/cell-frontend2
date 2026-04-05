@@ -1,0 +1,60 @@
+{
+  "appId": "com.mycompany.mycellapp",
+  "productName": "CellVolumeApp",
+  "directories": {
+    "output": "dist_electron",
+    "buildResources": "assets",
+    "app": "."
+  },
+  "files": [
+    "dist/**/*",
+    "../backend/**/*",
+    "../prerequisites.txt",
+    "package.json",
+    "electron-main_copy.js",
+    "src/electron/**/*"
+  ],
+  "extraResources": [
+    {
+      "from": "../newenv",
+      "to": "newenv",
+      "filter": ["**/*", "!**/.git/**"]
+    },
+    {
+      "from": "../annotations",
+      "to": "annotations",
+      "filter": ["**/*"]
+    }
+  ],
+  "mac": {
+    "target": ["dmg", "zip"],
+    "category": "public.app-category.science",
+    "identity": null,
+    "hardenedRuntime": false,
+    "entitlements": null,
+    "entitlementsInherit": null,
+    "signIgnore": [
+      "newenv/bin/python",
+      "newenv/bin/python3",
+      "newenv/src/detectron2/.git"
+    ]
+  },
+  "win": {
+    "target": ["nsis", "zip"]
+  },
+  "linux": {
+    "target": ["AppImage", "deb"]
+  },
+  "asar": false,
+  "nodeGypRebuild": false,
+  "npmRebuild": false,
+  "publish": null,
+  "protocols": [
+    {
+      "name": "CellVolumeApp",
+      "schemes": ["cellvolumeapp"]
+    }
+  ],
+  "buildVersion": "1.0.0",
+  "compression": "maximum"
+}
